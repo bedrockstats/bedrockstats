@@ -26,3 +26,30 @@ h1 {
     border-radius: 15px;
     transition: 0.2s;
 }
+
+.statGrid {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.stats {
+    font-family: Outfit;
+    border-color: peachpuff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #202020;
+    font-size: 22px;
+    color: peachpuff;
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    height: 100%;
+    width: 100%;
+    border-radius: 7px;
+    overflow: hidden;
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
