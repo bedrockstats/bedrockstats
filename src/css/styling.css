@@ -33,6 +33,12 @@ h1 {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
+hr.rounded {
+    margin: 30px;
+    border-top: 2px solid peachpuff;
+    border-radius: 5px;
+}
+
 .stats {
     font-family: Outfit;
     border-color: peachpuff;
