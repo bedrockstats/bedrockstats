@@ -17,9 +17,6 @@ function getStats() {
 }
 
 function fillStats(json) {
-  console.log(json);
-  console.log(json.bedwars);
-
   // bw stats
   bwBedsBroken.textContent = `Beds broken: ${json.bedwars.bedsBroken}`;
   bwBestWinstreak.textContent = `Best winstreak: ${json.bedwars.bestWinstreak}`;
