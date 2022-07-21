@@ -16,6 +16,11 @@ h1 {
     font-weight: 100;
 }
 
+#errText {
+    display: none;
+    color: crimson
+}
+
 .searchBox {
     font-family: Outfit;
     width: 75%;

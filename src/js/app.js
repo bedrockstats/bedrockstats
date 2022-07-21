@@ -1,4 +1,5 @@
 const userInput = document.getElementById("userInput");
+const errText = document.getElementById("errText");
 
 // get bw stats elements
 const bwBedsBroken = document.getElementById("bwBedsBroken");
@@ -18,17 +19,30 @@ const duelsIronWins = document.getElementById("duelsIronWins");
 const duelsPotPvpWins = document.getElementById("duelsPotPvpWins");
 const duelsSumoWins = document.getElementById("duelsSumoWins");
 
+function handleErrors(response) {
+  if (!response.ok) {
+    response.json().then(function (json) {
+      errText.style.display = "block";
+      errText.textContent = json.error;
+    });
+  }
+  return response;
+}
+
 function getStats() {
   const username = userInput.value; // this will be used in the api request
 
   fetch(`https://api.hyperlandsmc.net/stats/${username}`)
-    .then((response) => response.json())
-    .then((json) => fillStats(json.stats));
+    .then(handleErrors)
+    .then((response) => {
+      response.json().then(function (json) {
+        errText.style.display = "none";
+        fillStats(json.stats);
+      });
+    });
 }
 
 function fillStats(json) {
-  console.log(json);
-
   // bw stats
   bwBedsBroken.textContent = `Beds broken: ${json.bedwars.bedsBroken}`;
   bwBestWinstreak.textContent = `Best winstreak: ${json.bedwars.bestWinstreak}`;
