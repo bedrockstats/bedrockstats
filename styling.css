@@ -73,6 +73,7 @@ hr.rounded {
 }
 
 #executeButton {
+    cursor: pointer;
     font-size: 2rem;
     color: peachpuff;
     box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
@@ -84,7 +85,6 @@ hr.rounded {
 }
 
 #executeButton:hover {
-    cursor: pointer;
     box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
     transform: translateY(-2px) scale(1.06);
 }
