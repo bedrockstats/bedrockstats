@@ -37,28 +37,30 @@ for (let i = 0; i < coll.length; i++) {
   });
 }
 
-function getStats() {
+function getStats(gamemode, statsFunction) {
   const username = userInput.value; // this will be used in the api request
 
-  fetch(`https://api.playhive.com/v0/game/all/wars/${username}`)
+  fetch(`https://api.playhive.com/v0/game/all/${gamemode}/${username}`)
     .then(handleErrors)
     .then((response) => {
       response.json().then(function (json) {
         errText.style.display = "none";
-        fillStats(json);
+        statsFunction(json);
       });
     });
 }
 
-function fillStats(json) {
+function onBtnClick() {
+  getStats("wars", fillStatsWars);
+}
+
+function fillStatsWars(json) {
   let firstPlayedNormal = new Date(json.first_played * 1000).toLocaleDateString(
     "en-US"
   );
 
   let kdRatio = json.kills / json.deaths;
   kdRatio = kdRatio.toFixed(1);
-
-  console.log(json);
 
   twXP.textContent = `XP: ${json.xp}`;
   twTimesPlayed.textContent = `Times played: ${json.played}`;
