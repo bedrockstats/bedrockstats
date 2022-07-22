@@ -13,6 +13,16 @@ const twDeaths = document.getElementById("twDeaths");
 const twKDRatio = document.getElementById("twKDRatio");
 const twPrestige = document.getElementById("twPrestige");
 
+// get deathrun stats elements
+const drXP = document.getElementById("drXP");
+const drTimesPlayed = document.getElementById("drTimesPlayed");
+const drWins = document.getElementById("drWins");
+const drFirstPlayed = document.getElementById("drFirstPlayed");
+const drDeaths = document.getElementById("drDeaths");
+const drKills = document.getElementById("drKills");
+const drCheckpoints = document.getElementById("drCheckpoints");
+const drTrapsActivated = document.getElementById("drTrapsActivated");
+
 function handleErrors(response) {
   if (!response.ok) {
     errText.style.display = "block";
@@ -52,6 +62,7 @@ function getStats(gamemode, statsFunction) {
 
 function onBtnClick() {
   getStats("wars", fillStatsWars);
+  getStats("dr", fillStatsDeathRun);
 }
 
 function fillStatsWars(json) {
@@ -72,4 +83,22 @@ function fillStatsWars(json) {
   twDeaths.textContent = `Deaths: ${json.deaths}`;
   twPrestige.textContent = `Prestige: ${json.prestige}`;
   twKDRatio.textContent = `K/D: ${kdRatio}`;
+}
+
+function fillStatsDeathRun(json) {
+  let firstPlayedNormal = new Date(json.first_played * 1000).toLocaleDateString(
+    "en-US"
+  );
+
+  let kdRatio = json.kills / json.deaths;
+  kdRatio = kdRatio.toFixed(1);
+
+  drXP.textContent = `XP: ${json.xp}`;
+  drTimesPlayed.textContent = `Times played: ${json.played}`;
+  drWins.textContent = `Wins: ${json.victories}`;
+  drFirstPlayed.textContent = `First played: ${firstPlayedNormal}`;
+  drDeaths.textContent = `Deaths: ${json.deaths}`;
+  drCheckpoints.textContent = `Checkpoints reached: ${json.checkpoints}`;
+  drTrapsActivated.textContent = `Traps activated ${json.activated}`;
+  drKills.textContent = `Kills: ${json.kills}`;
 }
