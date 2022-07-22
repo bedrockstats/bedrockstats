@@ -71,6 +71,24 @@ hr.rounded {
     border-radius: 5px;
 }
 
+.content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.45s;
+}
+
+.collapsible {
+    background-color: transparent;
+    color: peachpuff;
+    border-radius: 7px;
+    padding: 15px;
+    border-color: peachpuff;
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    cursor: pointer;
+    font-size: larger;
+    font-family: Outfit;
+}
+
 .stats {
     font-family: Outfit;
     border-color: peachpuff;
