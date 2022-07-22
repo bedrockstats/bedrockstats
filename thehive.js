@@ -22,6 +22,7 @@ const drDeaths = document.getElementById("drDeaths");
 const drKills = document.getElementById("drKills");
 const drCheckpoints = document.getElementById("drCheckpoints");
 const drTrapsActivated = document.getElementById("drTrapsActivated");
+const drKDRatio = document.getElementById("drKDRatio");
 
 function handleErrors(response) {
   if (!response.ok) {
@@ -65,40 +66,41 @@ function onBtnClick() {
   getStats("dr", fillStatsDeathRun);
 }
 
-function fillStatsWars(json) {
+function unixToNormal(json) {
   let firstPlayedNormal = new Date(json.first_played * 1000).toLocaleDateString(
     "en-US"
   );
 
+  return firstPlayedNormal;
+}
+
+function kdrCalc(json) {
   let kdRatio = json.kills / json.deaths;
   kdRatio = kdRatio.toFixed(1);
+  return kdRatio;
+}
 
+function fillStatsWars(json) {
   twXP.textContent = `XP: ${json.xp}`;
   twTimesPlayed.textContent = `Times played: ${json.played}`;
   twWins.textContent = `Wins: ${json.victories}`;
-  twFirstPlayed.textContent = `First played: ${firstPlayedNormal}`;
+  twFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
   twFinalKills.textContent = `Final kills: ${json.final_kills}`;
   twKills.textContent = `Kills: ${json.kills}`;
   twTreasuresDestroyed.textContent = `Treasures destroyed: ${json.treasure_destroyed}`;
   twDeaths.textContent = `Deaths: ${json.deaths}`;
   twPrestige.textContent = `Prestige: ${json.prestige}`;
-  twKDRatio.textContent = `K/D: ${kdRatio}`;
+  twKDRatio.textContent = `K/D: ${kdrCalc(json)}`;
 }
 
 function fillStatsDeathRun(json) {
-  let firstPlayedNormal = new Date(json.first_played * 1000).toLocaleDateString(
-    "en-US"
-  );
-
-  let kdRatio = json.kills / json.deaths;
-  kdRatio = kdRatio.toFixed(1);
-
   drXP.textContent = `XP: ${json.xp}`;
   drTimesPlayed.textContent = `Times played: ${json.played}`;
   drWins.textContent = `Wins: ${json.victories}`;
-  drFirstPlayed.textContent = `First played: ${firstPlayedNormal}`;
+  drFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
   drDeaths.textContent = `Deaths: ${json.deaths}`;
   drCheckpoints.textContent = `Checkpoints reached: ${json.checkpoints}`;
   drTrapsActivated.textContent = `Traps activated ${json.activated}`;
   drKills.textContent = `Kills: ${json.kills}`;
+  drKDRatio.textContent = `K/D: ${kdrCalc(json)}`;
 }
