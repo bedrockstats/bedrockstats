@@ -9,7 +9,7 @@ A website to view user's stats on popular Minecraft: Bedrock Edition servers
 Just search a user and click "Get stats"
 
 ## Open source
-Use the source code for whatever you want, just give credit!
+Use the source code for whatever you want, just give credit! (no skidding!)
 
 ## Wide range of support
 Instead of supporting 1 server, we support multiple in the same place!
