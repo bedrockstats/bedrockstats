@@ -24,6 +24,16 @@ const drCheckpoints = document.getElementById("drCheckpoints");
 const drTrapsActivated = document.getElementById("drTrapsActivated");
 const drKDRatio = document.getElementById("drKDRatio");
 
+// get hide n seek elements
+const hideXP = document.getElementById("hideXP");
+const hideTimesPlayed = document.getElementById("hideTimesPlayed");
+const hideWins = document.getElementById("hideWins");
+const hideFirstPlayed = document.getElementById("hideFirstPlayed");
+const hideDeaths = document.getElementById("hideDeaths");
+const hideKDRatio = document.getElementById("hideKDRatio");
+const hiderKills = document.getElementById("hiderKills");
+const seekerKills = document.getElementById("seekerKills");
+
 function handleErrors(response) {
   if (!response.ok) {
     errText.style.display = "block";
@@ -64,6 +74,7 @@ function getStats(gamemode, statsFunction) {
 function onBtnClick() {
   getStats("wars", fillStatsWars);
   getStats("dr", fillStatsDeathRun);
+  getStats("hide", fillStatsHide);
 }
 
 function unixToNormal(json) {
@@ -74,9 +85,18 @@ function unixToNormal(json) {
   return firstPlayedNormal;
 }
 
-function kdrCalc(json) {
-  let kdRatio = json.kills / json.deaths;
+function kdrCalc(jsonKills, jsonDeaths) {
+  let kdRatio = jsonKills / jsonDeaths;
   kdRatio = kdRatio.toFixed(1);
+
+  return kdRatio;
+}
+
+function kdrCalcHide(jsonHiderKills, jsonSeekerKills, jsonDeaths) {
+  let totalKills = jsonHiderKills + jsonSeekerKills;
+  let kdRatio = totalKills / jsonDeaths;
+  kdRatio = kdRatio.toFixed(1);
+
   return kdRatio;
 }
 
@@ -90,7 +110,7 @@ function fillStatsWars(json) {
   twTreasuresDestroyed.textContent = `Treasures destroyed: ${json.treasure_destroyed}`;
   twDeaths.textContent = `Deaths: ${json.deaths}`;
   twPrestige.textContent = `Prestige: ${json.prestige}`;
-  twKDRatio.textContent = `K/D: ${kdrCalc(json)}`;
+  twKDRatio.textContent = `K/D: ${kdrCalc(json.kills, json.deaths)}`;
 }
 
 function fillStatsDeathRun(json) {
@@ -102,5 +122,20 @@ function fillStatsDeathRun(json) {
   drCheckpoints.textContent = `Checkpoints reached: ${json.checkpoints}`;
   drTrapsActivated.textContent = `Traps activated ${json.activated}`;
   drKills.textContent = `Kills: ${json.kills}`;
-  drKDRatio.textContent = `K/D: ${kdrCalc(json)}`;
+  drKDRatio.textContent = `K/D: ${kdrCalc(json.kills, json.deaths)}`;
+}
+
+function fillStatsHide(json) {
+  hideXP.textContent = `XP: ${json.xp}`;
+  hideTimesPlayed.textContent = `Times played: ${json.played}`;
+  hideWins.textContent = `Wins: ${json.victories}`;
+  hideFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
+  hideDeaths.textContent = `Deaths: ${json.deaths}`;
+  hideKDRatio.textContent = `K/D: ${kdrCalcHide(
+    json.hider_kills,
+    json.seeker_kills,
+    json.deaths
+  )}`;
+  hiderKills.textContent = `Hider kills: ${json.hider_kills}`;
+  seekerKills.textContent = `Seeker kills: ${json.seeker_kills}`;
 }
