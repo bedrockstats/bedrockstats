@@ -10,7 +10,7 @@ const twFinalKills = document.getElementById("twFinalKills");
 const twKills = document.getElementById("twKills");
 const twTreasuresDestroyed = document.getElementById("twTreasuresDestroyed");
 const twDeaths = document.getElementById("twDeaths");
-const twKDRatio = document.getElementById("twKDRatio");
+const twKDR = document.getElementById("twKDR");
 const twPrestige = document.getElementById("twPrestige");
 
 // get deathrun stats elements
@@ -22,7 +22,7 @@ const drDeaths = document.getElementById("drDeaths");
 const drKills = document.getElementById("drKills");
 const drCheckpoints = document.getElementById("drCheckpoints");
 const drTrapsActivated = document.getElementById("drTrapsActivated");
-const drKDRatio = document.getElementById("drKDRatio");
+const drKDR = document.getElementById("drKDR");
 
 // get hide n seek elements
 const hideXP = document.getElementById("hideXP");
@@ -30,7 +30,7 @@ const hideTimesPlayed = document.getElementById("hideTimesPlayed");
 const hideWins = document.getElementById("hideWins");
 const hideFirstPlayed = document.getElementById("hideFirstPlayed");
 const hideDeaths = document.getElementById("hideDeaths");
-const hideKDRatio = document.getElementById("hideKDRatio");
+const hideKDR = document.getElementById("hideKDR");
 const hiderKills = document.getElementById("hiderKills");
 const seekerKills = document.getElementById("seekerKills");
 
@@ -97,18 +97,18 @@ function unixToNormal(json) {
 }
 
 function kdrCalc(jsonKills, jsonDeaths) {
-  let kdRatio = jsonKills / jsonDeaths;
-  kdRatio = kdRatio.toFixed(1);
+  let KDR = jsonKills / jsonDeaths;
+  KDR = KDR.toFixed(1);
 
-  return kdRatio;
+  return KDR;
 }
 
 function kdrCalcHide(jsonHiderKills, jsonSeekerKills, jsonDeaths) {
   let totalKills = jsonHiderKills + jsonSeekerKills;
-  let kdRatio = totalKills / jsonDeaths;
-  kdRatio = kdRatio.toFixed(1);
+  let KDR = totalKills / jsonDeaths;
+  KDR = KDR.toFixed(1);
 
-  return kdRatio;
+  return KDR;
 }
 
 function fillStatsWars(json) {
@@ -121,7 +121,7 @@ function fillStatsWars(json) {
   twTreasuresDestroyed.textContent = `Treasures destroyed: ${json.treasure_destroyed}`;
   twDeaths.textContent = `Deaths: ${json.deaths}`;
   twPrestige.textContent = `Prestige: ${json.prestige}`;
-  twKDRatio.textContent = `K/D: ${kdrCalc(json.kills, json.deaths)}`;
+  twKDR.textContent = `K/D: ${kdrCalc(json.kills, json.deaths)}`;
 }
 
 function fillStatsDeathRun(json) {
@@ -133,7 +133,7 @@ function fillStatsDeathRun(json) {
   drCheckpoints.textContent = `Checkpoints reached: ${json.checkpoints}`;
   drTrapsActivated.textContent = `Traps activated: ${json.activated}`;
   drKills.textContent = `Kills: ${json.kills}`;
-  drKDRatio.textContent = `K/D: ${kdrCalc(json.kills, json.deaths)}`;
+  drKDR.textContent = `K/D: ${kdrCalc(json.kills, json.deaths)}`;
 }
 
 function fillStatsHide(json) {
@@ -142,7 +142,7 @@ function fillStatsHide(json) {
   hideWins.textContent = `Wins: ${json.victories}`;
   hideFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
   hideDeaths.textContent = `Deaths: ${json.deaths}`;
-  hideKDRatio.textContent = `K/D: ${kdrCalcHide(
+  hideKDR.textContent = `K/D: ${kdrCalcHide(
     json.hider_kills,
     json.seeker_kills,
     json.deaths
