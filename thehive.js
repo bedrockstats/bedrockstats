@@ -1,5 +1,5 @@
 const userInput = document.getElementById("userInput");
-const errText = document.getElementById("errText");
+const responseStatus = document.getElementById("responseStatus");
 
 // get tw stats elements
 const twXP = document.getElementById("twXP");
@@ -47,8 +47,8 @@ const sgKills = document.getElementById("sgKills");
 
 function handleErrors(response) {
   if (!response.ok) {
-    errText.style.display = "block";
-    errText.textContent = `Epic API Fail! Status code: ${response.status}`;
+    responseStatus.style.display = "block";
+    responseStatus.textContent = `Epic API Fail! Status code: ${response.status}`;
   }
   return response;
 }
@@ -76,7 +76,7 @@ function getStats(gamemode, statsFunction) {
     .then(handleErrors)
     .then((response) => {
       response.json().then(function (json) {
-        errText.style.display = "none";
+        responseStatus.style.display = "none";
         statsFunction(json);
       });
     });

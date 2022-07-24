@@ -1,5 +1,5 @@
 const userInput = document.getElementById("userInput");
-const errText = document.getElementById("errText");
+const responseStatus = document.getElementById("responseStatus");
 
 // get bw stats elements
 const bwBedsBroken = document.getElementById("bwBedsBroken");
@@ -22,8 +22,8 @@ const duelsSumoWins = document.getElementById("duelsSumoWins");
 function handleErrors(response) {
   if (!response.ok) {
     response.json().then(function (json) {
-      errText.style.display = "block";
-      errText.textContent = json.error;
+      responseStatus.style.display = "block";
+      responseStatus.textContent = json.error;
     });
   }
   return response;
@@ -52,7 +52,7 @@ function getStats() {
     .then(handleErrors)
     .then((response) => {
       response.json().then(function (json) {
-        errText.style.display = "none";
+        responseStatus.style.display = "none";
         fillStats(json.stats);
       });
     });

@@ -39,7 +39,7 @@ h1 {
     font-weight: 100;
 }
 
-#errText {
+#responseStatus {
     margin-top: 45px;
     display: none;
     color: crimson
