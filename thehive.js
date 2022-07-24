@@ -34,6 +34,16 @@ const hideKDRatio = document.getElementById("hideKDRatio");
 const hiderKills = document.getElementById("hiderKills");
 const seekerKills = document.getElementById("seekerKills");
 
+// get sg elements
+const sgXP = document.getElementById("sgXP");
+const sgTimesPlayed = document.getElementById("sgTimesPlayed");
+const sgWins = document.getElementById("sgWins");
+const sgFirstPlayed = document.getElementById("sgFirstPlayed");
+const sgCrates = document.getElementById("sgCrates");
+const sgDeathmatches = document.getElementById("sgDeathmatches");
+const sgLootCows = document.getElementById("sgLootCows");
+const sgKills = document.getElementById("sgKills");
+
 function handleErrors(response) {
   if (!response.ok) {
     errText.style.display = "block";
@@ -75,6 +85,7 @@ function onBtnClick() {
   getStats("wars", fillStatsWars);
   getStats("dr", fillStatsDeathRun);
   getStats("hide", fillStatsHide);
+  getStats("sg", fillStatsSG);
 }
 
 function unixToNormal(json) {
@@ -138,4 +149,15 @@ function fillStatsHide(json) {
   )}`;
   hiderKills.textContent = `Hider kills: ${json.hider_kills}`;
   seekerKills.textContent = `Seeker kills: ${json.seeker_kills}`;
+}
+
+function fillStatsSG(json) {
+  sgXP.textContent = `XP: ${json.xp}`;
+  sgTimesPlayed.textContent = `Times played: ${json.played}`;
+  sgWins.textContent = `Wins: ${json.victories}`;
+  sgFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
+  sgCrates.textContent = `Crates: ${json.crates}`;
+  sgDeathmatches.textContent = `Deathmatches: ${json.deathmatches}`;
+  sgLootCows.textContent = `Loot cows: ${json.cows}`;
+  sgKills.textContent = `Kills: ${json.kills}`;
 }
