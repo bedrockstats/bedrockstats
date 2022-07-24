@@ -48,7 +48,12 @@ const sgKills = document.getElementById("sgKills");
 function handleErrors(response) {
   if (!response.ok) {
     responseStatus.style.display = "block";
-    responseStatus.textContent = `Epic API Fail! Status code: ${response.status}`;
+    responseStatus.style.color = "crimson";
+    responseStatus.textContent = `Epic API Fail! (Status code: ${response.status})`;
+  } else if (response.ok) {
+    responseStatus.style.display = "block";
+    responseStatus.style.color = "#59bd59";
+    responseStatus.textContent = `API request succeeded! (Status code: ${response.status})`
   }
   return response;
 }
@@ -76,7 +81,6 @@ function getStats(gamemode, statsFunction) {
     .then(handleErrors)
     .then((response) => {
       response.json().then(function (json) {
-        responseStatus.style.display = "none";
         statsFunction(json);
       });
     });

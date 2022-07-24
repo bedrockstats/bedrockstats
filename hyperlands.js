@@ -20,12 +20,19 @@ const duelsPotPvpWins = document.getElementById("duelsPotPvpWins");
 const duelsSumoWins = document.getElementById("duelsSumoWins");
 
 function handleErrors(response) {
-  if (!response.ok) {
-    response.json().then(function (json) {
+  response.json().then(function (json) {
+    if (!response.ok) {
       responseStatus.style.display = "block";
+      responseStatus.style.color = "crimson";
       responseStatus.textContent = json.error;
+    }
+    if (response.ok) {
+      responseStatus.style.display = "block";
+      responseStatus.style.color = "#59bd59";
+      responseStatus.textContent = `API request succeeded! (Status code: ${response.status})`
+      fillStats(json.stats)
+    }
     });
-  }
   return response;
 }
 
@@ -50,12 +57,6 @@ function getStats() {
 
   fetch(`https://api.hyperlandsmc.net/stats/${username}`)
     .then(handleErrors)
-    .then((response) => {
-      response.json().then(function (json) {
-        responseStatus.style.display = "none";
-        fillStats(json.stats);
-      });
-    });
 }
 
 function fillStats(json) {
