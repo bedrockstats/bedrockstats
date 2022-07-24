@@ -40,6 +40,7 @@ h1 {
 }
 
 #errText {
+    margin-top: 45px;
     display: none;
     color: crimson
 }
