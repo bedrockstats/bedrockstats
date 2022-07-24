@@ -11,6 +11,7 @@ const twKills = document.getElementById("twKills");
 const twTreasuresDestroyed = document.getElementById("twTreasuresDestroyed");
 const twDeaths = document.getElementById("twDeaths");
 const twKDR = document.getElementById("twKDR");
+const twFKDR = document.getElementById("twFKDR");
 const twPrestige = document.getElementById("twPrestige");
 
 // get deathrun stats elements
@@ -122,6 +123,7 @@ function fillStatsWars(json) {
   twDeaths.textContent = `Deaths: ${json.deaths}`;
   twPrestige.textContent = `Prestige: ${json.prestige}`;
   twKDR.textContent = `K/D: ${kdrCalc(json.kills, json.deaths)}`;
+  twFKDR.textContent = `FK/D: ${kdrCalc(json.final_kills, json.deaths)}`;
 }
 
 function fillStatsDeathRun(json) {
