@@ -131,7 +131,7 @@ function fillStatsDeathRun(json) {
   drFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
   drDeaths.textContent = `Deaths: ${json.deaths}`;
   drCheckpoints.textContent = `Checkpoints reached: ${json.checkpoints}`;
-  drTrapsActivated.textContent = `Traps activated ${json.activated}`;
+  drTrapsActivated.textContent = `Traps activated: ${json.activated}`;
   drKills.textContent = `Kills: ${json.kills}`;
   drKDRatio.textContent = `K/D: ${kdrCalc(json.kills, json.deaths)}`;
 }
