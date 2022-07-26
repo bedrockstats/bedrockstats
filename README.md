@@ -1,9 +1,13 @@
-# Bedrock Stats
-A website to view user's stats on popular Minecraft: Bedrock Edition servers
+<h1 align="center">
+  Bedrock Stats
+  
+  ![Screenshot_2022-07-26_19-38-44](https://user-images.githubusercontent.com/71889427/181130330-b3847e38-921d-4547-b692-389cc782e606.png)
+  
+  A website to view user's stats on popular Minecraft: Bedrock Edition servers
+</h1>
 
 (Bedrock Status is still being heavily worked on, please report bugs in the Issues tab)
 
-![Screenshot 2022-07-22 12 13 26 AM](https://user-images.githubusercontent.com/71889427/180361099-849cd25d-0705-436a-b25b-72e5cb3d56ef.png)
 
 ## Ease of use
 Just search a user and click "Get stats"
