@@ -53,7 +53,7 @@ function handleErrors(response) {
   } else if (response.ok) {
     responseStatus.style.display = "block";
     responseStatus.style.color = "#59bd59";
-    responseStatus.textContent = `API request succeeded! (Status code: ${response.status})`
+    responseStatus.textContent = `API request succeeded! (Status code: ${response.status})`;
   }
   return response;
 }
@@ -87,6 +87,10 @@ function getStats(gamemode, statsFunction) {
 }
 
 function onBtnClick() {
+  responseStatus.style.display = "block";
+  responseStatus.style.color = "Khaki";
+  responseStatus.textContent = `Sending API request...`;
+
   getStats("wars", fillStatsWars);
   getStats("dr", fillStatsDeathRun);
   getStats("hide", fillStatsHide);

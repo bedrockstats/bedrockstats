@@ -29,10 +29,10 @@ function handleErrors(response) {
     if (response.ok) {
       responseStatus.style.display = "block";
       responseStatus.style.color = "#59bd59";
-      responseStatus.textContent = `API request succeeded! (Status code: ${response.status})`
-      fillStats(json.stats)
+      responseStatus.textContent = `API request succeeded! (Status code: ${response.status})`;
+      fillStats(json.stats);
     }
-    });
+  });
   return response;
 }
 
@@ -53,10 +53,13 @@ for (let i = 0; i < coll.length; i++) {
 }
 
 function getStats() {
+  responseStatus.style.display = "block";
+  responseStatus.style.color = "Khaki";
+  responseStatus.textContent = `Sending API request...`;
+
   const username = userInput.value; // this will be used in the api request
 
-  fetch(`https://api.hyperlandsmc.net/stats/${username}`)
-    .then(handleErrors)
+  fetch(`https://api.hyperlandsmc.net/stats/${username}`).then(handleErrors);
 }
 
 function fillStats(json) {
