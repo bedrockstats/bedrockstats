@@ -45,6 +45,17 @@ const sgDeathmatches = document.getElementById("sgDeathmatches");
 const sgLootCows = document.getElementById("sgLootCows");
 const sgKills = document.getElementById("sgKills");
 
+// get murder mystery stats elements
+const mmXP = document.getElementById("mmXP");
+const mmTimesPlayed = document.getElementById("mmTimesPlayed");
+const mmWins = document.getElementById("mmWins");
+const mmDeaths = document.getElementById("mmDeaths");
+const mmFirstPlayed = document.getElementById("mmFirstPlayed");
+const mmCoinsCollected = document.getElementById("mmCoinsCollected");
+const mmMurders = document.getElementById("mmMurders");
+const mmMurdererEliminations = document.getElementById("mmMurdererEliminations");
+const mmKDR = document.getElementById("mmKDR");
+
 function handleErrors(response) {
   if (!response.ok) {
     responseStatus.style.display = "block";
@@ -95,6 +106,7 @@ function onBtnClick() {
   getStats("dr", fillStatsDeathRun);
   getStats("hide", fillStatsHide);
   getStats("sg", fillStatsSG);
+  getStats("murder", fillStatsMM);
 }
 
 function unixToNormal(json) {
@@ -170,4 +182,20 @@ function fillStatsSG(json) {
   sgDeathmatches.textContent = `Deathmatches: ${json.deathmatches}`;
   sgLootCows.textContent = `Loot cows: ${json.cows}`;
   sgKills.textContent = `Kills: ${json.kills}`;
+}
+
+function fillStatsMM(json) {
+  mmXP.textContent = `XP: ${json.xp}`;
+  mmTimesPlayed.textContent = `Times played: ${json.played}`;
+  mmWins.textContent = `Wins: ${json.victories}`;
+  mmDeaths.textContent = `Deaths: ${json.deaths}`;
+  mmFirstPlayed.textContent = `First played: ${unixToNormal(json.first_played)}`;
+  mmCoinsCollected.textContent = `Coins collected: ${json.coins}`;
+  mmMurders.textContent = `Murders: ${json.murders}`;
+  mmMurdererEliminations.textContent = `Murderer eliminations: ${json.murderer_eliminations}`;
+  mmKDR.textContent = `K/D: ${kdrCalcHide(
+    json.murders,
+    json.murderer_eliminations,
+    json.deaths
+  )}`
 }
