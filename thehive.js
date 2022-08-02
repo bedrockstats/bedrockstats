@@ -189,7 +189,7 @@ function fillStatsMM(json) {
   mmTimesPlayed.textContent = `Times played: ${json.played}`;
   mmWins.textContent = `Wins: ${json.victories}`;
   mmDeaths.textContent = `Deaths: ${json.deaths}`;
-  mmFirstPlayed.textContent = `First played: ${unixToNormal(json.first_played)}`;
+  mmFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
   mmCoinsCollected.textContent = `Coins collected: ${json.coins}`;
   mmMurders.textContent = `Murders: ${json.murders}`;
   mmMurdererEliminations.textContent = `Murderer eliminations: ${json.murderer_eliminations}`;
