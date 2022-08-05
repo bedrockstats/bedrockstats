@@ -19,6 +19,9 @@ const duelsIronWins = document.getElementById("duelsIronWins");
 const duelsPotPvpWins = document.getElementById("duelsPotPvpWins");
 const duelsSumoWins = document.getElementById("duelsSumoWins");
 
+const skywarsKills = document.getElementById("skywarsKills");
+const skywarsWins = document.getElementById("skywarsWins");
+
 function handleErrors(response) {
   response.json().then(function (json) {
     if (!response.ok) {
@@ -30,6 +33,7 @@ function handleErrors(response) {
       responseStatus.style.display = "block";
       responseStatus.style.color = "#59bd59";
       responseStatus.textContent = `API request succeeded! (Status code: ${response.status})`;
+      console.log(json.stats);
       fillStats(json.stats);
     }
   });
@@ -80,4 +84,7 @@ function fillStats(json) {
   duelsIronWins.textContent = `Iron wins: ${json.duels.ironWins}`;
   duelsPotPvpWins.textContent = `PotPVP wins: ${json.duels.potWins}`;
   duelsSumoWins.textContent = `Sumo wins: ${json.duels.sumoWins}`;
+
+  skywarsKills.textContent = `Kills: ${json.skywars.kills}`;
+  skywarsWins.textContent = `Wins: ${json.skywars.wins}`;
 }
