@@ -53,7 +53,9 @@ const mmDeaths = document.getElementById("mmDeaths");
 const mmFirstPlayed = document.getElementById("mmFirstPlayed");
 const mmCoinsCollected = document.getElementById("mmCoinsCollected");
 const mmMurders = document.getElementById("mmMurders");
-const mmMurdererEliminations = document.getElementById("mmMurdererEliminations");
+const mmMurdererEliminations = document.getElementById(
+  "mmMurdererEliminations"
+);
 const mmKDR = document.getElementById("mmKDR");
 
 function handleErrors(response) {
@@ -124,8 +126,8 @@ function kdrCalc(jsonKills, jsonDeaths) {
   return KDR;
 }
 
-function kdrCalcHide(jsonHiderKills, jsonSeekerKills, jsonDeaths) {
-  let totalKills = jsonHiderKills + jsonSeekerKills;
+function kdrCalcMulti(jsonKills1, jsonKills2, jsonDeaths) {
+  let totalKills = jsonKills1 + jsonKills2;
   let KDR = totalKills / jsonDeaths;
   KDR = KDR.toFixed(1);
 
@@ -164,7 +166,7 @@ function fillStatsHide(json) {
   hideWins.textContent = `Wins: ${json.victories}`;
   hideFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
   hideDeaths.textContent = `Deaths: ${json.deaths}`;
-  hideKDR.textContent = `K/D: ${kdrCalcHide(
+  hideKDR.textContent = `K/D: ${kdrCalcMulti(
     json.hider_kills,
     json.seeker_kills,
     json.deaths
@@ -193,9 +195,9 @@ function fillStatsMM(json) {
   mmCoinsCollected.textContent = `Coins collected: ${json.coins}`;
   mmMurders.textContent = `Murders: ${json.murders}`;
   mmMurdererEliminations.textContent = `Murderer eliminations: ${json.murderer_eliminations}`;
-  mmKDR.textContent = `K/D: ${kdrCalcHide(
+  mmKDR.textContent = `K/D: ${kdrCalcMulti(
     json.murders,
     json.murderer_eliminations,
     json.deaths
-  )}`
+  )}`;
 }
