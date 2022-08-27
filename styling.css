@@ -134,10 +134,3 @@ hr.rounded {
     box-shadow: peachpuff 0px 0.35em 1.175em, peachpuff 0px 0.1em;
     transform: translateY(5px) scale(1.06);
 }
-
-.hyperlandsSkywars {
-    padding-left: 650px;
-    display: grid;
-    gap: 50px;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-}
