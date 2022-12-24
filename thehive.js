@@ -58,6 +58,18 @@ const mmMurdererEliminations = document.getElementById(
 );
 const mmKDR = document.getElementById("mmKDR");
 
+// get skywars stats elements
+const skyXP = document.getElementById("skyXP");
+const skyTimesPlayed = document.getElementById("skyTimesPlayed");
+const skyWins = document.getElementById("skyWins");
+const skyKills = document.getElementById("skyKills");
+const skyFirstPlayed = document.getElementById("skyFirstPlayed");
+const skyMysteryChestsDestroyed = document.getElementById(
+  "skyMysteryChestsDestroyed"
+);
+const skyOresMined = document.getElementById("skyOresMined");
+const skySpellbooksUsed = document.getElementById("skySpellbooksUsed");
+
 function handleErrors(response) {
   if (!response.ok) {
     responseStatus.style.display = "block";
@@ -109,6 +121,7 @@ function onBtnClick() {
   getStats("hide", fillStatsHide);
   getStats("sg", fillStatsSG);
   getStats("murder", fillStatsMM);
+  getStats("sky", fillStatsSkywars);
 }
 
 function unixToNormal(json) {
@@ -200,4 +213,15 @@ function fillStatsMM(json) {
     json.murderer_eliminations,
     json.deaths
   )}`;
+}
+
+function fillStatsSkywars(json) {
+  skyXP.textContent = `XP: ${json.xp}`;
+  skyTimesPlayed.textContent = `Times played: ${json.played}`;
+  skyWins.textContent = `Wins: ${json.victories}`;
+  skyKills.textContent = `Kills: ${json.kills}`;
+  skyFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
+  skyMysteryChestsDestroyed.textContent = `Mystery Chests destroyed: ${json.mystery_chests_destroyed}`;
+  skyOresMined.textContent = `Ores mined: ${json.ores_mined}`;
+  skySpellbooksUsed.textContent = `Spellbooks used: ${json.spells_used}`;
 }

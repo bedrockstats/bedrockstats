@@ -2,127 +2,143 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="bedrockstats.png">
-    <meta content="Bedrock Stats" property="og:title" />
-    <meta content="A website to view user's stats on popular Minecraft: Bedrock Edition servers"
-        property="og:description" />
-    <meta content="https://bedrockstats.fun" property="og:url" />
-    <meta content="https://bedrockstats.fun/bedrockstats.png" property="og:image" />
-    <meta content="#ffdab9" data-react-helmet="true" name="theme-color" />
-    <script defer src="thehive.js"></script>
-    <link rel="stylesheet" href="styling.css">
-    <title>Bedrock Stats</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="bedrockstats.png">
+  <meta content="Bedrock Stats" property="og:title" />
+  <meta content="A website to view user's stats on popular Minecraft: Bedrock Edition servers"
+    property="og:description" />
+  <meta content="https://bedrockstats.fun" property="og:url" />
+  <meta content="https://bedrockstats.fun/bedrockstats.png" property="og:image" />
+  <meta content="#ffdab9" data-react-helmet="true" name="theme-color" />
+  <script defer src="thehive.js"></script>
+  <link rel="stylesheet" href="styling.css">
+  <title>Bedrock Stats</title>
 </head>
 
 <body>
-    <ul>
-        <li><a href="https://github.com/bedrockstats/bedrockstats.github.io#readme">Bedrock Stats</a></li>
-        <li><a href="https://bedrockstats.fun">Hyperlands</a></li>
-        <li><a href="#">The Hive</a></li>
-    </ul>
+  <ul>
+    <li><a href="https://github.com/bedrockstats/bedrockstats.github.io#readme">Bedrock Stats</a></li>
+    <li><a href="https://bedrockstats.fun">Hyperlands</a></li>
+    <li><a href="#">The Hive</a></li>
+  </ul>
 
-    <h1>bedrockstats.fun</h1>
+  <h1>bedrockstats.fun</h1>
 
-    <input class="searchBox" type="text" id="userInput" placeholder="Enter user's name here">
+  <input class="searchBox" type="text" id="userInput" placeholder="Enter user's name here">
 
-    <div class="executeButtonContainer">
-        <button onclick="onBtnClick()" class="stats" id="executeButton">Get stats</button>
-    </div>
+  <div class="executeButtonContainer">
+    <button onclick="onBtnClick()" class="stats" id="executeButton">Get stats</button>
+  </div>
 
-    <p id="responseStatus">bedrockstats.fun ran into an error while trying to search that user!</p>
+  <p id="responseStatus">bedrockstats.fun ran into an error while trying to search that user!</p>
 
-    <hr class="rounded">
+  <hr class="rounded">
 
-    <button type="button" class="collapsible">Treasure Wars Stats - Click to toggle</button>
-    <div class="content">
-        <section class="statGrid">
-            <p id="twXP" class="stats">XP: 0</p>
-            <p id="twTimesPlayed" class="stats">Times played: 0</p>
-            <p id="twWins" class="stats">Wins: 0</p>
-            <p id="twFirstPlayed" class="stats">First played: 1/1/70</p>
-            <p id="twFinalKills" class="stats">Final kills: 0</p>
-            <p id="twKills" class="stats">Kills: 0</p>
-            <p id="twTreasuresDestroyed" class="stats">Treasures Destroyed: 0</p>
-            <p id="twDeaths" class="stats">Deaths: 0</p>
-            <p id="twKDR" class="stats">K/D: 0.0</p>
-            <p id="twFKDR" class="stats">FK/D: 0.0</p>
-            <p id="twPrestige" class="stats">Prestige: 0</p>
-        </section>
-    </div>
+  <button type="button" class="collapsible">Treasure Wars Stats - Click to toggle</button>
+  <div class="content">
+    <section class="statGrid">
+      <p id="twXP" class="stats">XP: 0</p>
+      <p id="twTimesPlayed" class="stats">Times played: 0</p>
+      <p id="twWins" class="stats">Wins: 0</p>
+      <p id="twFirstPlayed" class="stats">First played: 1/1/70</p>
+      <p id="twFinalKills" class="stats">Final kills: 0</p>
+      <p id="twKills" class="stats">Kills: 0</p>
+      <p id="twTreasuresDestroyed" class="stats">Treasures Destroyed: 0</p>
+      <p id="twDeaths" class="stats">Deaths: 0</p>
+      <p id="twKDR" class="stats">K/D: 0.0</p>
+      <p id="twFKDR" class="stats">FK/D: 0.0</p>
+      <p id="twPrestige" class="stats">Prestige: 0</p>
+    </section>
+  </div>
 
-    <hr class="rounded">
+  <hr class="rounded">
 
-    <button type="button" class="collapsible">Death Run Stats - Click to toggle</button>
-    <div class="content">
-        <section class="statGrid">
-            <p id="drXP" class="stats">XP: 0</p>
-            <p id="drTimesPlayed" class="stats">Times played: 0</p>
-            <p id="drWins" class="stats">Wins: 0</p>
-            <p id="drFirstPlayed" class="stats">First played: 1/1/70</p>
-            <p id="drDeaths" class="stats">Deaths: 0</p>
-            <p id="drCheckpoints" class="stats">Checkpoints reached: 0</p>
-            <p id="drTrapsActivated" class="stats">Traps activated: 0</p>
-            <p id="drKills" class="stats">Kills: 0</p>
-            <p id="drKDR" class="stats">K/D: 0.0</p>
-        </section>
-    </div>
+  <button type="button" class="collapsible">Death Run Stats - Click to toggle</button>
+  <div class="content">
+    <section class="statGrid">
+      <p id="drXP" class="stats">XP: 0</p>
+      <p id="drTimesPlayed" class="stats">Times played: 0</p>
+      <p id="drWins" class="stats">Wins: 0</p>
+      <p id="drFirstPlayed" class="stats">First played: 1/1/70</p>
+      <p id="drDeaths" class="stats">Deaths: 0</p>
+      <p id="drCheckpoints" class="stats">Checkpoints reached: 0</p>
+      <p id="drTrapsActivated" class="stats">Traps activated: 0</p>
+      <p id="drKills" class="stats">Kills: 0</p>
+      <p id="drKDR" class="stats">K/D: 0.0</p>
+    </section>
+  </div>
 
-    <hr class="rounded">
+  <hr class="rounded">
 
-    <button type="button" class="collapsible">Hide & Seek Stats - Click to toggle</button>
-    <div class="content">
-        <section class="statGrid">
-            <p id="hideXP" class="stats">XP: 0</p>
-            <p id="hideTimesPlayed" class="stats">Times played: 0</p>
-            <p id="hideWins" class="stats">Wins: 0</p>
-            <p id="hideFirstPlayed" class="stats">First played: 1/1/70</p>
-            <p id="hideDeaths" class="stats">Deaths: 0</p>
-            <p id="hideKDR" class="stats">K/D: 0.0</p>
-            <p id="hiderKills" class="stats">Hider kills: 0</p>
-            <p id="seekerKills" class="stats">Seeker kills: 0</p>
-        </section>
-    </div>
-    
-    <hr class="rounded">
+  <button type="button" class="collapsible">Hide & Seek Stats - Click to toggle</button>
+  <div class="content">
+    <section class="statGrid">
+      <p id="hideXP" class="stats">XP: 0</p>
+      <p id="hideTimesPlayed" class="stats">Times played: 0</p>
+      <p id="hideWins" class="stats">Wins: 0</p>
+      <p id="hideFirstPlayed" class="stats">First played: 1/1/70</p>
+      <p id="hideDeaths" class="stats">Deaths: 0</p>
+      <p id="hideKDR" class="stats">K/D: 0.0</p>
+      <p id="hiderKills" class="stats">Hider kills: 0</p>
+      <p id="seekerKills" class="stats">Seeker kills: 0</p>
+    </section>
+  </div>
 
-    <button type="button" class="collapsible">Survival Games Stats - Click to toggle</button>
-    <div class="content">
-        <section class="statGrid">
-            <p id="sgXP" class="stats">XP: 0</p>
-            <p id="sgTimesPlayed" class="stats">Times played: 0</p>
-            <p id="sgWins" class="stats">Wins: 0</p>
-            <p id="sgFirstPlayed" class="stats">First played: 0</p>
-            <p id="sgCrates" class="stats">Crates: 0</p>
-            <p id="sgDeathmatches" class="stats">Deathmatches: 0</p>
-            <p id="sgLootCows" class="stats">Loot cows: 0</p>
-            <p id="sgKills" class="stats">Kills: 0</p>
-        </section>
-    </div>
+  <hr class="rounded">
 
-    <hr class="rounded">
-    
-    <button type="button" class="collapsible">Murder Mystery Stats - Click to toggle</button>
-    <div class="content">
-        <section class="statGrid">
-            <p id="mmXP" class="stats">XP: 0</p>
-            <p id="mmTimesPlayed" class="stats">Times played: 0</p>
-            <p id="mmWins" class="stats">Wins: 0</p>
-            <p id="mmDeaths" class="stats">Deaths: 0</p>
-            <p id="mmFirstPlayed" class="stats">First played: 1/1/70</p>
-            <p id="mmCoinsCollected" class="stats">Coins collected: 0</p>
-            <p id="mmMurders" class="stats">Murders: 0</p>
-            <p id="mmMurdererEliminations" class="stats">Murderer eliminations: 0</p>
-            <p id="mmKDR" class="stats">K/D: 0</p>
-        </section>
-    </div>
-    
-    <hr class="rounded">
+  <button type="button" class="collapsible">Survival Games Stats - Click to toggle</button>
+  <div class="content">
+    <section class="statGrid">
+      <p id="sgXP" class="stats">XP: 0</p>
+      <p id="sgTimesPlayed" class="stats">Times played: 0</p>
+      <p id="sgWins" class="stats">Wins: 0</p>
+      <p id="sgFirstPlayed" class="stats">First played: 0</p>
+      <p id="sgCrates" class="stats">Crates: 0</p>
+      <p id="sgDeathmatches" class="stats">Deathmatches: 0</p>
+      <p id="sgLootCows" class="stats">Loot cows: 0</p>
+      <p id="sgKills" class="stats">Kills: 0</p>
+    </section>
+  </div>
 
-    <footer><a href="https://github.com/Plextora">Made by Plextora</a></footer>
-    <footer><a href="https://github.com/bedrockstats/bedrockstats">Bedrock Stats GitHub repo, MIT License</a></footer>
+  <hr class="rounded">
+
+  <button type="button" class="collapsible">Murder Mystery Stats - Click to toggle</button>
+  <div class="content">
+    <section class="statGrid">
+      <p id="mmXP" class="stats">XP: 0</p>
+      <p id="mmTimesPlayed" class="stats">Times played: 0</p>
+      <p id="mmWins" class="stats">Wins: 0</p>
+      <p id="mmDeaths" class="stats">Deaths: 0</p>
+      <p id="mmFirstPlayed" class="stats">First played: 1/1/70</p>
+      <p id="mmCoinsCollected" class="stats">Coins collected: 0</p>
+      <p id="mmMurders" class="stats">Murders: 0</p>
+      <p id="mmMurdererEliminations" class="stats">Murderer eliminations: 0</p>
+      <p id="mmKDR" class="stats">K/D: 0</p>
+    </section>
+  </div>
+
+  <hr class="rounded">
+
+  <button type="button" class="collapsible">Skywars Stats - Click to toggle</button>
+  <div class="content">
+    <section class="statGrid">
+      <p id="skyXP" class="stats">XP: 0</p>
+      <p id="skyTimesPlayed" class="stats">Times played: 0</p>
+      <p id="skyWins" class="stats">Wins: 0</p>
+      <p id="skyKills" class="stats">Kills: 0</p>
+      <p id="skyFirstPlayed" class="stats">First played: 1/1/70</p>
+      <p id="skyMysteryChestsDestroyed" class="stats">Mystery Chests destroyed: 0</p>
+      <p id="skyOresMined" class="stats">Ores mined: 0</p>
+      <p id="skySpellbooksUsed" class="stats">Spellbooks used: 0</p>
+    </section>
+  </div>
+
+  <hr class="rounded">
+
+  <footer><a href="https://github.com/Plextora">Made by Plextora</a></footer>
+  <footer><a href="https://github.com/bedrockstats/bedrockstats">Bedrock Stats GitHub repo, MIT License</a></footer>
 </body>
 
 </html>
