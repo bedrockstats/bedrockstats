@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
 
 h1 {
   font-weight: normal;
@@ -6,22 +6,46 @@ h1 {
 }
 
 h2 {
+  padding-left: 5%;
   font-weight: normal;
 }
 
 img {
+  padding-left: 5%;
   max-width: 100%;
   height: auto;
 }
 
 body {
-  padding-left: 5%;
   background-color: #181818;
   color: peachpuff;
   font-family: Outfit;
   font-size: larger;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  text-align: center;
+  float: left;
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: rgb(66, 60, 60);
+}
 hr.rounded {
   margin: 60px;
   border-top: 2px solid peachpuff;
