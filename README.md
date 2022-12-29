@@ -8,15 +8,18 @@
 
 (Bedrock Status is still being heavily worked on, please report bugs in the Issues tab)
 
-
 ## Ease of use
+
 Just search a user and click "Get stats"
 
 ## Open source
+
 Use the source code for whatever you want, just give credit! (no skidding!)
 
 ## Wide range of support
+
 Instead of supporting 1 server, we support multiple in the same place!
 
 ## Just a stat checker, nothing more
+
 No spooky data collection on our end, just the needed code to display all of your desired stats

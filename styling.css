@@ -1,136 +1,140 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
 
 body {
-    background-color: #181818;
-    color: peachpuff;
-    font-family: Outfit;
-    font-size: larger;
-    text-align: center;
+  background-color: #181818;
+  color: peachpuff;
+  font-family: Outfit;
+  font-size: larger;
+  text-align: center;
 }
 
 a {
-    color: #f2d4cb;
+  color: #f2d4cb;
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
 
 li {
-    float: left;
+  float: left;
 }
 
 li a {
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 li a:hover {
-    background-color: rgb(66, 60, 60);
+  background-color: rgb(66, 60, 60);
 }
 
 h1 {
-    font-weight: 100;
+  font-weight: 100;
 }
 
 #responseStatus {
-    margin-top: 45px;
-    display: none;
-    color: crimson
+  margin-top: 45px;
+  display: none;
+  color: crimson;
 }
 
 .searchBox {
-    font-family: Outfit;
-    width: 75%;
-    background-color: #303030;
-    color: peachpuff;
-    border: 2px solid peachpuff;
-    border-radius: 10px;
-    padding: 12px;
+  font-family: Outfit;
+  width: 75%;
+  background-color: #303030;
+  color: peachpuff;
+  border: 2px solid peachpuff;
+  border-radius: 10px;
+  padding: 12px;
 }
 
 .searchBox:focus {
-    border-radius: 15px;
-    transition: 0.2s;
+  border-radius: 15px;
+  transition: 0.2s;
 }
 
 .statGrid {
-    display: grid;
-    gap: 50px;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
 hr.rounded {
-    margin: 60px;
-    border-top: 2px solid peachpuff;
-    border-radius: 5px;
+  margin: 60px;
+  border-top: 2px solid peachpuff;
+  border-radius: 5px;
 }
 
 .content {
-    max-height: 0px;
-    overflow: hidden;
-    transition: max-height 0.45s;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.45s;
 }
 
 .collapsible {
-    background-color: transparent;
-    color: peachpuff;
-    border-radius: 7px;
-    padding: 15px;
-    border-color: peachpuff;
-    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
-    cursor: pointer;
-    font-size: larger;
-    font-family: Outfit;
+  background-color: transparent;
+  color: peachpuff;
+  border-radius: 7px;
+  padding: 15px;
+  border-color: peachpuff;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
+    rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  cursor: pointer;
+  font-size: larger;
+  font-family: Outfit;
 }
 
 .stats {
-    font-family: Outfit;
-    border-color: peachpuff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #202020;
-    font-size: 22px;
-    color: peachpuff;
-    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
-    height: 100%;
-    width: 100%;
-    border-radius: 7px;
-    overflow: hidden;
+  font-family: Outfit;
+  border-color: peachpuff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #202020;
+  font-size: 22px;
+  color: peachpuff;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
+    rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  height: 100%;
+  width: 100%;
+  border-radius: 7px;
+  overflow: hidden;
 }
 
 .executeButtonContainer {
-    margin-top: 25px;
-    display: grid;
-    grid-template-columns: auto;
-    justify-items: center;
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: auto;
+  justify-items: center;
 }
 
 #executeButton {
-    cursor: pointer;
-    font-size: 2rem;
-    color: peachpuff;
-    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
-    height: 100%;
-    width: 50%;
-    border-radius: 7px;
-    transition: all 500ms;
+  cursor: pointer;
+  font-size: 2rem;
+  color: peachpuff;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
+    rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  height: 100%;
+  width: 50%;
+  border-radius: 7px;
+  transition: all 500ms;
 }
 
 #executeButton:hover {
-    box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-    transform: translateY(-2px) scale(1.06);
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em,
+    rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transform: translateY(-2px) scale(1.06);
 }
 
 #executeButton:focus {
-    box-shadow: peachpuff 0px 0.35em 1.175em, peachpuff 0px 0.1em;
-    transform: translateY(5px) scale(1.06);
+  box-shadow: peachpuff 0px 0.35em 1.175em, peachpuff 0px 0.1em;
+  transform: translateY(5px) scale(1.06);
 }
