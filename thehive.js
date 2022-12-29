@@ -70,6 +70,18 @@ const skyMysteryChestsDestroyed = document.getElementById(
 const skyOresMined = document.getElementById("skyOresMined");
 const skySpellbooksUsed = document.getElementById("skySpellbooksUsed");
 
+// get ctf stats elements
+const ctfXP = document.getElementById("ctfXP");
+const ctfTimesPlayed = document.getElementById("ctfTimesPlayed");
+const ctfWins = document.getElementById("ctfWins");
+const ctfKills = document.getElementById("ctfKills");
+const ctfAssists = document.getElementById("ctfAssists");
+const ctfDeaths = document.getElementById("ctfDeaths");
+const ctfKDR = document.getElementById("ctfKDR");
+const ctfFirstPlayed = document.getElementById("ctfFirstPlayed");
+const ctfFlagsCaptured = document.getElementById("ctfFlagsCaptured");
+const ctfFlagsReturned = document.getElementById("ctfFlagsReturned");
+
 function handleErrors(response) {
   if (!response.ok) {
     responseStatus.style.display = "block";
@@ -122,6 +134,7 @@ function onBtnClick() {
   getStats("sg", fillStatsSG);
   getStats("murder", fillStatsMM);
   getStats("sky", fillStatsSkywars);
+  getStats("ctf", fillStatsCtf);
 }
 
 function unixToNormal(json) {
@@ -224,4 +237,21 @@ function fillStatsSkywars(json) {
   skyMysteryChestsDestroyed.textContent = `Mystery Chests destroyed: ${json.mystery_chests_destroyed}`;
   skyOresMined.textContent = `Ores mined: ${json.ores_mined}`;
   skySpellbooksUsed.textContent = `Spellbooks used: ${json.spells_used}`;
+}
+
+function fillStatsCtf(json) {
+  ctfXP.textContent = `XP: ${json.xp}`;
+  ctfTimesPlayed.textContent = `Times played: ${json.played}`;
+  ctfWins.textContent = `Wins: ${json.victories}`;
+  ctfKills.textContent = `Kills: ${json.kills}`;
+  ctfAssists.textContent = `Assists: ${json.assists}`;
+  ctfDeaths.textContent = `Deaths: ${json.deaths}`;
+  ctfKDR.textContent = `K/D: ${kdrCalcMulti(
+    json.kills,
+    json.assists,
+    json.deaths
+  )}`;
+  ctfFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
+  ctfFlagsCaptured.textContent = `Flags captured: ${json.flags_captured}`;
+  ctfFlagsReturned.textContent = `Flags returned: ${json.flags_returned}`;
 }
