@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+h1 {
+  font-weight: normal;
+  text-align: center;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  padding-left: 5%;
+  background-color: #181818;
+  color: peachpuff;
+  font-family: Outfit;
+  font-size: larger;
+}
+
+hr.rounded {
+  margin: 60px;
+  border-top: 2px solid peachpuff;
+  border-radius: 5px;
+}
+
+footer {
+  text-align: center;
+}
+
+a {
+  color: #f2d4cb;
+}
