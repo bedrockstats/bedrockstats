@@ -82,6 +82,12 @@ const ctfFirstPlayed = document.getElementById("ctfFirstPlayed");
 const ctfFlagsCaptured = document.getElementById("ctfFlagsCaptured");
 const ctfFlagsReturned = document.getElementById("ctfFlagsReturned");
 
+userInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    onBtnClick();
+  }
+});
+
 function handleErrors(response) {
   if (!response.ok) {
     responseStatus.style.display = "block";

@@ -22,6 +22,12 @@ const duelsSumoWins = document.getElementById("duelsSumoWins");
 const skywarsKills = document.getElementById("skywarsKills");
 const skywarsWins = document.getElementById("skywarsWins");
 
+userInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    getStats();
+  }
+});
+
 function handleErrors(response) {
   response.json().then(function (json) {
     if (!response.ok) {
