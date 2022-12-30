@@ -1,12 +1,12 @@
 <h1 align="center">
-  Bedrock Stats
+  bedrockstats.fun
   
   ![Screenshot_2022-07-26_19-38-44](https://user-images.githubusercontent.com/71889427/181130330-b3847e38-921d-4547-b692-389cc782e606.png)
   
   A website to view user's stats on popular Minecraft: Bedrock Edition servers
 </h1>
 
-(Bedrock Status is still being heavily worked on, please report bugs in the Issues tab)
+(bedrockstats.fun is still being heavily worked on, please report bugs in the Issues tab)
 
 ## Ease of use
 
