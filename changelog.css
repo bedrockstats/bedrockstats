@@ -16,6 +16,11 @@ img {
   height: auto;
 }
 
+a {
+  padding-left: 5%;
+  font-weight: normal;
+}
+
 body {
   background-color: #181818;
   color: peachpuff;
