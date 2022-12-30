@@ -118,7 +118,9 @@ function getStats(gamemode, statsFunction) {
     .then(handleErrors)
     .then((response) => {
       response.json().then(function (json) {
-        statsFunction(json);
+        if (json.length != 0) {
+          statsFunction(json);
+        }
       });
     });
 }
