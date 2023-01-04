@@ -82,6 +82,16 @@ const ctfFirstPlayed = document.getElementById("ctfFirstPlayed");
 const ctfFlagsCaptured = document.getElementById("ctfFlagsCaptured");
 const ctfFlagsReturned = document.getElementById("ctfFlagsReturned");
 
+// get block drop stats elements
+const bdXP = document.getElementById("bdXP");
+const bdTimesPlayed = document.getElementById("bdTimesPlayed");
+const bdWins = document.getElementById("bdWins");
+const bdDeaths = document.getElementById("bdDeaths");
+const bdBlocksDestroyed = document.getElementById("bdBlocksDestroyed");
+const bdFirstPlayed = document.getElementById("bdBlocksDestroyed");
+const bdPowerupsCollected = document.getElementById("bdPowerupsCollected");
+const bdVaultsUsed = document.getElementById("bdVaultsUsed");
+
 userInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     onBtnClick();
@@ -143,6 +153,7 @@ function onBtnClick() {
   getStats("murder", fillStatsMM);
   getStats("sky", fillStatsSkywars);
   getStats("ctf", fillStatsCtf);
+  getStats("drop", fillStatsBlockDrop);
 }
 
 function unixToNormal(json) {
@@ -262,4 +273,15 @@ function fillStatsCtf(json) {
   ctfFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
   ctfFlagsCaptured.textContent = `Flags captured: ${json.flags_captured}`;
   ctfFlagsReturned.textContent = `Flags returned: ${json.flags_returned}`;
+}
+
+function fillStatsBlockDrop(json) {
+  bdXP.textContent = `XP: ${json.xp}`;
+  bdTimesPlayed.textContent = `Times played: ${json.played}`;
+  bdWins.textContent = `Wins: ${json.wins}`;
+  bdDeaths.textContent = `Deaths: ${json.deaths}`;
+  bdBlocksDestroyed.textContent = `Blocks destroyed: ${json.blocks_destroyed}`;
+  bdFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
+  bdPowerupsCollected.textContent = `Powerups collected: ${json.powerups_collected}`;
+  bdVaultsUsed.textContent = `Vaults used: ${json.vaults_used}`;
 }
