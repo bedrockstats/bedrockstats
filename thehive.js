@@ -278,7 +278,6 @@ function fillStatsCtf(json) {
 function fillStatsBlockDrop(json) {
   bdXP.textContent = `XP: ${json.xp}`;
   bdTimesPlayed.textContent = `Times played: ${json.played}`;
-  bdWins.textContent = `Wins: ${json.wins}`;
   bdDeaths.textContent = `Deaths: ${json.deaths}`;
   bdBlocksDestroyed.textContent = `Blocks destroyed: ${json.blocks_destroyed}`;
   bdFirstPlayed.textContent = `First played: ${unixToNormal(json)}`;
